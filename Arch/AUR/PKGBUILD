@@ -33,8 +33,8 @@ package() {
 	### Extract the data
 	bsdtar xf data.tar.xz
 
-	mv usr/share/icons/hicolor/0x0/ usr/share/icons/hicolor/1024x1024/
-	mv usr/share/icons/hicolor/1024x1024/apps/shadow-preprod.png usr/share/icons/hicolor/1024x1024/apps/shadow-beta.png
+	mv "${srcdir}/usr/share/icons/hicolor/0x0/" "${srcdir}/usr/share/icons/hicolor/1024x1024/"
+	mv "${srcdir}/usr/share/icons/hicolor/1024x1024/apps/shadow-preprod.png" "${srcdir}/usr/share/icons/shadow-beta.png"
 
 	chmod -R g-w usr
 	mv usr "${pkgdir}"
@@ -46,7 +46,7 @@ package() {
 	cd "${pkgdir}/usr/share/applications/"
 
 	sed -i -e 's/^Categories=.*$/Categories=Games;Game;Utility;Virtualization/g' shadow-preprod.desktop
-	sed -i -e 's/^Icon=.*$/Icon=shadow-beta/g' shadow-preprod.desktop
+	sed -i -e 's/^Icon=.*$/Icon=shadow-beta.png/g' shadow-preprod.desktop
 	mv shadow-preprod.desktop "$srcdir/shadow-beta.desktop"
 
 	# Move the source directory
