@@ -54,7 +54,7 @@ main() {
     DISTRO=$(cat /etc/*-release |& awk -F= '/^NAME/ { print $2 }' | sed 's/"//g')
 
     case $DISTRO in
-        "Ubuntu" | "Debian GNU/Linux")
+        "Ubuntu" | "Debian GNU/Linux" | "Pop!_OS")
             print_distro $DISTRO
             if ! type "vainfo" > /dev/null 2>&1
             then
